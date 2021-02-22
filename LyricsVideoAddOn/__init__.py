@@ -7,7 +7,7 @@ bl_info = {
     "author": "Nn Nn",
     "description": "This is my first addon...",
     "version": (1, 0),
-    "blender": (2, 80, 0),
+    "blender": (2, 90, 2),
     "location": "View3D > Object > My First Addon",
     "warning": "",
     "category": "Object"

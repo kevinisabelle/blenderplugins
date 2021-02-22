@@ -12,6 +12,10 @@ class Transition:
 
 class LyricsScriptReader:
 
+    def __init__(self, lyricsfilename):
+        self.script_lines = []
+        self.read_file()
+
     def read_file(self):
         print('test')
         print(self)
@@ -23,6 +27,7 @@ class LyricsScriptReader:
         i = -1
         for line in tempTextLines:
             i = i+1
+            self.script_lines[i] = ScriptLine.getFromLine(line)
             LyricsLines[i] = line.split("|", 1)[1].replace("/", "\n")
             StartPositions[i] = int(line.split("|", 1)[0])
 
@@ -36,6 +41,20 @@ class LyricsScriptReader:
                 break
 
         return index
+
+
+class ScriptLine:
+
+    frame = 0
+    text = ""
+    transition = ""
+
+    @staticmethod
+    def getFromLine(textLine):
+        print('test')
+        scriptLine = ScriptLine()
+        scriptLine.frame = int(textLine.split("|", 1)[0])
+        return scriptLine
 
 
 scriptReader = LyricsScriptReader()

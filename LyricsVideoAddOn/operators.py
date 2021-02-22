@@ -2,10 +2,10 @@
 import bpy.types
 
 
-class MYFIRSTADDON_OT_test(bpy.types.Operator):
+class LyricsVideoAddOn_OT(bpy.types.Operator):
     """Operator for my first addon..."""
 
-    bl_idname = "myfirstaddon.test"
+    bl_idname = "lyricsvideoaddon"
     bl_label = "This operator does some fancy things..."
     bl_options = {'REGISTER'}
 
