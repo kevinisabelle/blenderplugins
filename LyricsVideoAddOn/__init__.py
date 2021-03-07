@@ -1,4 +1,4 @@
-from .operators import MYFIRSTADDON_OT_test
+from .operators import LyricsVideoAddOn_OT
 from .panel import MYFIRSTADDON_PT_main_panel
 import bpy.types
 import bpy
