@@ -1,26 +1,20 @@
 from .operators import LyricsVideoAddOn_OT
-from .panel import MYFIRSTADDON_PT_main_panel
+from .panel import LyricsVideoAddOn_PT_main_panel
 import bpy.types
 import bpy
 bl_info = {
-    "name": "My First Addon",
-    "author": "Nn Nn",
-    "description": "This is my first addon...",
+    "name": "Lyrics Video Generator",
+    "author": "Kevin Isabelle",
+    "description": "This plugin reads a script file with lyrics and frames.",
     "version": (1, 0),
     "blender": (2, 90, 2),
-    "location": "View3D > Object > My First Addon",
+    "location": "View3D > Object > Lyrics Video Generator",
     "warning": "",
     "category": "Object"
 }
 
-# Blender imports
-
-# Import Panel
-
-# Import Operators
-
-classes = (MYFIRSTADDON_OT_test,
-           MYFIRSTADDON_PT_main_panel)
+classes = (LyricsVideoAddOn_OT,
+           LyricsVideoAddOn_PT_main_panel)
 
 
 def register():

@@ -2,15 +2,15 @@
 import bpy.types
 
 
-class MYFIRSTADDON_PT_main_panel(bpy.types.Panel):
+class LyricsVideoAddOn_PT_main_panel(bpy.types.Panel):
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
-    bl_label = "My First Addon"
+    bl_label = "Lyrics Video"
     bl_context = "objectmode"
-    bl_category = "My First Addon"
+    bl_category = "K Isabel"
 
     def draw(self, context):
         layout = self.layout
 
         row = layout.row()
-        row.operator("myfirstaddon.test", text="My operator")
+        row.operator("lyricsvideoaddon.test", text="Test stuff")
