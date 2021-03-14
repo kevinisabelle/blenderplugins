@@ -1,6 +1,5 @@
-from .operators import LyricsVideoAddOn_OT
+from .operators import LyricsVideoAddOn_OT, OpenFilebrowser_OT
 from .panel import LyricsVideoAddOn_PT_main_panel
-from .OT_openFile import OT_TestOpenFilebrowser
 import bpy.types
 import bpy
 bl_info = {
@@ -16,7 +15,7 @@ bl_info = {
 
 classes = (LyricsVideoAddOn_OT,
            LyricsVideoAddOn_PT_main_panel,
-           OT_TestOpenFilebrowser)
+           OpenFilebrowser_OT)
 
 
 def register():
