@@ -13,4 +13,7 @@ class LyricsVideoAddOn_PT_main_panel(bpy.types.Panel):
         layout = self.layout
 
         row = layout.row()
-        row.operator("lyricsvideoaddon.test", text="Test stuff")
+        layout.label(text="File selections")
+
+        row.operator("lyricsvideoaddon.process", text="Refresh")
+        row.operator("test.open_filebrowser", text="Open Panel")
