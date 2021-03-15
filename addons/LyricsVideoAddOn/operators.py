@@ -65,8 +65,7 @@ class LyricsVideoAddOn_OT(bpy.types.Operator):
 
         print('Processing: ' + lyricsprops.lyricsfile)
 
-        reader.process_lyrics(
-            lyricsprops.lyricsfile)
+        reader.process_lyrics(lyricsprops.lyricsfile)
 
         print('Processed lyrics')
 
