@@ -1,11 +1,8 @@
 
-class Transition:
-
-    def process_transition(self):
-        print('test')
-
-
 class LyricsScriptReader:
+
+    textFilename = ""
+    waveFiles = []
 
     def __init__(self):
         self.script_lines = []
@@ -19,7 +16,14 @@ class LyricsScriptReader:
     def getFrame(self, index):
         return self.script_lines[index].frame
 
-    def process_lyrics(self, Text):
+    def process_lyrics(self, filename=""):
+
+        Text = "0|No Text Configured"
+
+        if (filename != ""):
+            f = open(filename, "r")
+            Text = f.read()
+
         tempTextLines = Text.splitlines()
         i = -1
         self.script_lines = [0] * len(tempTextLines)
