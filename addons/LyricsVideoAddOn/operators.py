@@ -21,7 +21,7 @@ def LyricsFrameHandler(scene):
 class SelectLyricsFile_OT(Operator, ImportHelper):
     """Select the lyrics file"""
     bl_idname = "lyricsvideoaddon.select_lyricsfile"
-    bl_label = "File"
+    bl_label = ""
 
     def execute(self, context):
         context.window_manager.lyricsprops.lyricsfile = self.filepath
@@ -36,6 +36,19 @@ class SelectMainWav_OT(Operator, ImportHelper):
     def execute(self, context):
         context.window_manager.lyricsprops.mainmusicfile = self.filepath
         return {'FINISHED'}
+
+
+class LyricsVideoAddOn_InsertWaves(bpy.types.Operator):
+    """Updates the waves curves"""
+    bl_idname = "lyricsvideoaddon.insertwaves"
+    bl_label = "Insert Waves"
+    bl_options = {'REGISTER'}
+
+    def execute(self, context):
+        if (not hasattr(bpy.context.scene.sequence_editor.sequences_all, "mainmusicfile")):
+
+            bpy.ops.sequencer.sound_strip_add(filepath=context.window_manager.lyricsprops.mainmusicfile, directory=context.window_manager.lyricsprops.mainmusicfile,
+                                              files=[{"name": "mainmusicfile", "name": "mainmusicfile"}], relative_path=True, frame_start=1, channel=1)
 
 
 class LyricsVideoAddOn_OT(bpy.types.Operator):

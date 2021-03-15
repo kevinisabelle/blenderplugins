@@ -1,4 +1,4 @@
-from .operators import LyricsVideoAddOn_OT, SelectLyricsFile_OT, SelectMainWav_OT, LyricsFrameHandler
+from .operators import LyricsVideoAddOn_OT, SelectLyricsFile_OT, SelectMainWav_OT, LyricsVideoAddOn_InsertWaves, LyricsFrameHandler
 from .panel import LyricsVideoAddOn_PT_main_panel
 import bpy.types
 from bpy.props import IntProperty, StringProperty
@@ -36,6 +36,7 @@ classes = (LyricsVideoAddOn_OT,
            LyricsVideoAddOn_PT_main_panel,
            SelectLyricsFile_OT,
            SelectMainWav_OT,
+           LyricsVideoAddOn_InsertWaves,
            LyricsProperties)
 
 
