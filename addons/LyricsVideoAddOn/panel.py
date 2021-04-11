@@ -18,38 +18,33 @@ class LyricsVideoAddOn_PT_main_panel(bpy.types.Panel):
         layout.separator()
 
         row = layout.row()
-        row.prop(context.window_manager.lyricsprops,
-                 "lyricsfile", icon="FILE_TEXT")
-
-        row.operator("lyricsvideoaddon.select_lyricsfile")
+        row.prop(context.scene.lyricsprops, "lyricsfile", icon="FILE_TEXT")
 
         layout.separator()
 
         row = layout.row()
-        row.prop(context.window_manager.lyricsprops,
+        row.prop(context.scene.lyricsprops,
                  "mainmusicfile", text="Main Music wav", icon="FILE_SOUND")
 
-        row.operator("lyricsvideoaddon.select_mainmusicfile")
-
         row = layout.row()
-        row.prop(context.window_manager.lyricsprops, "wavkick",
+        row.prop(context.scene.lyricsprops, "wavkick",
                  text="Kick wav", icon="FILE_SOUND")
 
         row = layout.row()
-        row.prop(context.window_manager.lyricsprops, "wavbass",
+        row.prop(context.scene.lyricsprops, "wavbass",
                  text="Bass wav", icon="FILE_SOUND")
 
         row = layout.row()
-        row.prop(context.window_manager.lyricsprops, "wavinstru1",
+        row.prop(context.scene.lyricsprops, "wavinstru1",
                  text="Instru 1 wav", icon="FILE_SOUND")
 
         row = layout.row()
-        row.prop(context.window_manager.lyricsprops, "wavinstru2",
-                 text="Instru 2 wav", icon="OBJECT_HIDDEN")
+        row.prop(context.scene.lyricsprops, "wavinstru2",
+                 text="Instru 2 wav", icon="FILE_SOUND")
 
         row = layout.row()
-        row.prop(context.window_manager.lyricsprops, "wavvocals",
-                 text="Vocals wav", icon="OBJECT_HIDDEN")
+        row.prop(context.scene.lyricsprops, "wavvocals",
+                 text="Vocals wav", icon="FILE_SOUND")
 
         layout.separator()
         row = layout.row()

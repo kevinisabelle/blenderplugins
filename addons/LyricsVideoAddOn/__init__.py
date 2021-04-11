@@ -45,7 +45,7 @@ def register():
     for cls in classes:
         register_class(cls)
 
-    bpy.types.WindowManager.lyricsprops = bpy.props.PointerProperty(
+    bpy.types.Scene.lyricsprops = bpy.props.PointerProperty(
         type=LyricsProperties)
 
     bpy.app.handlers.frame_change_pre.append(LyricsFrameHandler)
@@ -55,7 +55,7 @@ def unregister():
     from bpy.utils import unregister_class
     for cls in reversed(classes):
         unregister_class(cls)
-    del bpy.types.WindowManager.lyricsprops
+    del bpy.types.Scene.lyricsprops
     bpy.app.handlers.frame_change_pre.remove(LyricsFrameHandler)
 
 

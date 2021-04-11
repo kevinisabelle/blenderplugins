@@ -24,7 +24,7 @@ class SelectLyricsFile_OT(Operator, ImportHelper):
     bl_label = ""
 
     def execute(self, context):
-        context.window_manager.lyricsprops.lyricsfile = self.filepath
+        context.scene.lyricsprops.lyricsfile = self.filepath
         return {'FINISHED'}
 
 
@@ -34,21 +34,34 @@ class SelectMainWav_OT(Operator, ImportHelper):
     bl_label = "File"
 
     def execute(self, context):
-        context.window_manager.lyricsprops.mainmusicfile = self.filepath
+        context.scene.lyricsprops.mainmusicfile = self.filepath
         return {'FINISHED'}
 
 
 class LyricsVideoAddOn_InsertWaves(bpy.types.Operator):
     """Updates the waves curves"""
     bl_idname = "lyricsvideoaddon.insertwaves"
-    bl_label = "Insert Waves"
+    bl_label = "Insert Waves Curves"
     bl_options = {'REGISTER'}
 
     def execute(self, context):
         if (not hasattr(bpy.context.scene.sequence_editor.sequences_all, "mainmusicfile")):
 
-            bpy.ops.sequencer.sound_strip_add(filepath=context.window_manager.lyricsprops.mainmusicfile, directory=context.window_manager.lyricsprops.mainmusicfile,
-                                              files=[{"name": "mainmusicfile", "name": "mainmusicfile"}], relative_path=True, frame_start=1, channel=1)
+            # bpy.ops.sequencer.sound_strip_add(
+            # filepath="K:\\Google Drive\\KIsabel\\Content\\Released\\Music\\2021-01-Soltera\\Soltera_72.wav",
+            # directory="K:\\Google Drive\\KIsabel\\Content\\Released\\Music\\2021-01-Soltera\\",
+            # files=[{"name":"Soltera_72.wav", "name":"Soltera_72.wav"}], frame_start=1, channel=1)
+
+            dirname = os.path.dirname(context.scene.lyricsprops.mainmusicfile)
+            mainmusicfile = context.scene.lyricsprops.mainmusicfile
+            context.area.ui_type = 'SEQUENCE_EDITOR'
+
+            bpy.ops.sequencer.sound_strip_add(filepath=mainmusicfile, directory=dirname,
+                                              files=[{"name": "mainmusicfile", "name": "mainmusicfile"}], frame_start=1, channel=1)
+
+            context.area.ui_type = 'VIEW_3D'
+
+            return {'FINISHED'}
 
 
 class LyricsVideoAddOn_OT(bpy.types.Operator):
@@ -61,7 +74,7 @@ class LyricsVideoAddOn_OT(bpy.types.Operator):
     def execute(self, context):
         scene = context.scene
         object = context.object
-        lyricsprops = bpy.types.WindowManager.lyricsprops
+        lyricsprops = scene.lyricsprops
 
         print('Processing: ' + lyricsprops.lyricsfile)
 
